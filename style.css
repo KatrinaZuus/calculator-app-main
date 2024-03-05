@@ -96,11 +96,14 @@ body {
 
 .theme-change-button::-webkit-slider-thumb {
     appearance: none;
-    
     width: 16px;
     height: 16px;
     border-radius: 50%;
     background-color: #d03f2f;
+}
+
+.theme-change-button, .buttons :hover {
+    cursor: pointer;
 }
 
 .result {
@@ -156,6 +159,9 @@ body {
     font-weight: bold;
     border: none;
 }
+.number:hover {
+    background-color: #fffffe;
+}
 
 .reset {
     grid-column: 1/3;
@@ -204,6 +210,11 @@ body {
     background-color: #331c4d;
     }
 
+.dark .number:hover,   
+.dark .arithmeticOperations:hover {
+    background-color: #6c34ac;
+    }
+
 .dark .delete, 
 .dark .reset {
     box-shadow: inset 0 -4px 0 0 #be15f4;
@@ -242,6 +253,11 @@ body {
 .light .arithmeticOperations {
     box-shadow: inset 0 -4px 0 0 #a79e91;
     background-color: #e5e4e1;
+    }
+
+.light .number:hover,
+.light .arithmeticOperations:hover {
+    background-color: #fff;
     }
 
 .light .delete, 

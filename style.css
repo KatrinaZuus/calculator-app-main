@@ -108,6 +108,7 @@ body {
 
 .result {
     width: 327px;
+    height: 60px;
     display: flex;
     flex-direction: column;
     margin-top: 30px;
@@ -115,8 +116,8 @@ body {
     color: #fff;
     padding: 7px 25px 7px 170px;
     text-align: right;
-    gap: 10px;
     border-radius: 10px;
+
 }
 
 .final-result {
@@ -202,6 +203,7 @@ body {
 .dark .theme p,
 .dark .final-result {
     color: #ffe53d;
+    background-color: #1e0936;
     }
 
 .dark .number,
@@ -247,6 +249,7 @@ body {
 .light .theme p,
 .light .final-result {
     color: #36362c;
+    background-color: #eeeeee;
     }
 
 .light .number,

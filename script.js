@@ -1,9 +1,7 @@
+// change of themes
+
 let themeChangeButton = document.getElementsByClassName("theme-change-button")[0]
 let bodyThemecolor = document.getElementsByTagName("body")[0]
-
- 
-
-
 themeChangeButton.addEventListener(("input"), (event)=>{
     
     if (event.target.value == 2){
@@ -20,3 +18,121 @@ themeChangeButton.addEventListener(("input"), (event)=>{
 }
 }
 })
+
+
+//calculation
+
+
+let number = Array.from(document.getElementsByClassName("number"))
+let arithmeticOperations = Array.from(document.getElementsByClassName("arithmeticOperations"))
+let finalResult = document.getElementsByClassName("final-result")[0]
+let currentAction = document.getElementsByClassName("current-actions")[0]
+let equal = document.getElementsByClassName("equal")[0]
+let reset = document.getElementsByClassName("reset")[0]
+let del = document.getElementsByClassName("delete")[0]
+
+
+
+
+finalResult.textContent = "0.00"
+currentAction.innerText = "0"
+
+let result = 0
+let current = ""
+let previus = ""
+let math = ""
+
+
+      
+        number.forEach((numButton) => {
+            numButton.addEventListener("click", (event)=>{
+                current += numButton.textContent
+                finalResult.textContent = current
+                currentAction.innerText = current
+
+            console.log(`current is ${current}`)
+            console.log(`previus is ${previus}`)
+            console.log(`result is ${result}`)
+            console.log(`math is ${math}`)
+            
+            })
+        })
+
+        arithmeticOperations.forEach((mathButton) => {
+            mathButton.addEventListener("click", (event)=>{
+                math = event.target.innerText
+                previus = current
+                current=""
+                currentAction.innerText = math
+            
+            console.log(`current is ${current}`)
+            console.log(`previus is ${previus}`)
+            console.log(`result is ${result}`)
+            console.log(`math is ${math}`)
+            })        
+        }) 
+        
+        equal.addEventListener("click", ()=>{
+            calc(math, previus, current)
+            finalResult.innerText = result
+            previus=result
+            current=result
+            // previus = result
+            
+            
+            console.log(`current is ${current}`)
+            console.log(`previus is ${previus}`)
+            console.log(`result is ${result}`)
+            console.log(`math is ${math}`)
+        })
+
+        
+            function calc(math, previus, current) {
+            
+            if (math == "-"){
+                result = (previus-current).toFixed(2)
+                // previus = result
+                finalResult.innerText = result 
+                }
+            if (math == "+"){
+                result = (previus+current)
+                // previus = result
+                finalResult.innerText = result
+            }
+            if (math == "/"){
+                result = (previus/current).toFixed(2)
+                // previus = result
+                finalResult.innerText = result
+            }
+            if (math == "x"){
+                result = (previus*current).toFixed(2)
+                // previus = result
+                finalResult.innerText = result
+            }
+
+            }
+
+            reset.addEventListener("click", ()=>{
+                finalResult.innerText = "0.00"
+                currentAction.innerText = "0"
+                result = 0
+                current = ""
+                previus = ""
+
+            console.log(`current is ${current}`)
+            console.log(`previus is ${previus}`)
+            console.log(`result is ${result}`)
+            console.log(`math is ${math}`)
+    
+            })
+    
+            del.addEventListener("click", ()=>{
+                finalResult.innerText = "0.00"
+                current = ""
+
+            console.log(`current is ${current}`)
+            console.log(`previus is ${previus}`)
+            console.log(`result is ${result}`)
+            console.log(`math is ${math}`)
+            })
+        

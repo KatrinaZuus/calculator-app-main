@@ -37,6 +37,7 @@ let del = document.getElementsByClassName("delete")[0]
 finalResult.textContent = "0.00"
 currentAction.innerText = "0"
 
+
 let result = 0
 let current = ""
 let previus = ""
@@ -49,12 +50,6 @@ let math = ""
                 current += numButton.textContent
                 finalResult.textContent = current
                 currentAction.innerText = current
-
-            console.log(`current is ${current}`)
-            console.log(`previus is ${previus}`)
-            console.log(`result is ${result}`)
-            console.log(`math is ${math}`)
-            
             })
         })
 
@@ -84,6 +79,7 @@ let math = ""
             console.log(`previus is ${previus}`)
             console.log(`result is ${result}`)
             console.log(`math is ${math}`)
+            console.log(typeof(`result is ${result}`))
         })
 
         
@@ -95,7 +91,7 @@ let math = ""
                 finalResult.innerText = result 
                 }
             if (math == "+"){
-                result = (previus+current)
+                result = Number(previus+current).toFixed(2)
                 // previus = result
                 finalResult.innerText = result
             }
@@ -127,8 +123,9 @@ let math = ""
             })
     
             del.addEventListener("click", ()=>{
-                finalResult.innerText = "0.00"
-                current = ""
+                current = current.slice(0,-1)
+                finalResult.innerText = current
+
 
             console.log(`current is ${current}`)
             console.log(`previus is ${previus}`)

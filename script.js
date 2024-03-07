@@ -34,7 +34,7 @@ let del = document.getElementsByClassName("delete")[0]
 
 
 
-finalResult.textContent = "0.00"
+finalResult.textContent = "0"
 currentAction.innerText = "0"
 
 
@@ -100,20 +100,23 @@ let previusAction = ""
                 finalResult.innerText = result
             }
 
-            if (math == "/"){
-                result = (previus/current)
+            if (math == "/"){ 
+                if (current == 0) {
+                    result = "Error"
+                } else {
+                result = (previus/current).toFixed(2)
                 finalResult.innerText = result
-
+                }
             }
             if (math == "x"){
                 result = (previus*current)
                 finalResult.innerText = result
             }
 
-            }
+        }
 
             reset.addEventListener("click", ()=>{
-                finalResult.innerText = "0.00"
+                finalResult.innerText = "0"
                 currentAction.innerText = "0"
                 result = 0
                 current = ""

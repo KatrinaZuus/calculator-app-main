@@ -73,6 +73,7 @@ let previusAction = ""
         equal.addEventListener("click", ()=>{
             calc(math, previus, current)
             finalResult.innerText = result
+            currentAction.innerText = result
             previus=result
             current=result
             

@@ -90,7 +90,7 @@ let previusAction = ""
             previus = eval(previus)
             current = eval(current)
             if (math == "-"){
-                result = (previus-current).toFixed(2)
+                result = (previus-current)
                 finalResult.innerText = result 
                 }
 
@@ -101,12 +101,12 @@ let previusAction = ""
             }
 
             if (math == "/"){
-                result = (previus/current).toFixed(2)
+                result = (previus/current)
                 finalResult.innerText = result
 
             }
             if (math == "x"){
-                result = (previus*current).toFixed(2)
+                result = (previus*current)
                 finalResult.innerText = result
             }
 

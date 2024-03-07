@@ -42,24 +42,27 @@ let result = 0
 let current = ""
 let previus = ""
 let math = ""
-
+let previusAction = ""
 
       
         number.forEach((numButton) => {
             numButton.addEventListener("click", (event)=>{
+                previusAction += numButton.textContent
                 current += numButton.textContent
                 finalResult.textContent = current
-                currentAction.innerText = current
+                currentAction.innerText = previusAction
             })
         })
 
         arithmeticOperations.forEach((mathButton) => {
             mathButton.addEventListener("click", (event)=>{
                 math = event.target.innerText
+                previusAction += math
                 previus = current
                 current=""
-                currentAction.innerText = math
-            
+                currentAction.innerText = previusAction
+                
+
             console.log(`current is ${current}`)
             console.log(`previus is ${previus}`)
             console.log(`result is ${result}`)
@@ -72,7 +75,6 @@ let math = ""
             finalResult.innerText = result
             previus=result
             current=result
-            // previus = result
             
             
             console.log(`current is ${current}`)
@@ -84,25 +86,26 @@ let math = ""
 
         
             function calc(math, previus, current) {
-            
+            previus = eval(previus)
+            current = eval(current)
             if (math == "-"){
                 result = (previus-current).toFixed(2)
-                // previus = result
                 finalResult.innerText = result 
                 }
+
             if (math == "+"){
-                result = Number(previus+current).toFixed(2)
-                // previus = result
+                res = previus+current
+                result = eval(res)
                 finalResult.innerText = result
             }
+
             if (math == "/"){
                 result = (previus/current).toFixed(2)
-                // previus = result
                 finalResult.innerText = result
+
             }
             if (math == "x"){
                 result = (previus*current).toFixed(2)
-                // previus = result
                 finalResult.innerText = result
             }
 
@@ -114,6 +117,7 @@ let math = ""
                 result = 0
                 current = ""
                 previus = ""
+                previusAction = ""
 
             console.log(`current is ${current}`)
             console.log(`previus is ${previus}`)
@@ -125,7 +129,7 @@ let math = ""
             del.addEventListener("click", ()=>{
                 current = current.slice(0,-1)
                 finalResult.innerText = current
-
+                previusAction = previusAction.slice(0,-1)
 
             console.log(`current is ${current}`)
             console.log(`previus is ${previus}`)

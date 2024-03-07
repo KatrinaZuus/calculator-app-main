@@ -108,7 +108,7 @@ body {
 
 .result {
     width: 327px;
-    height: 60px;
+    height: 70px;
     display: flex;
     flex-direction: column;
     margin-top: 30px;
@@ -121,6 +121,7 @@ body {
 }
 
 .final-result {
+    margin-top: 7px;
     font-size: 40px;
     font-weight: bold;
     letter-spacing: -0.67px;
@@ -247,7 +248,8 @@ body {
 .light .number, 
 .light .arithmeticOperations,
 .light .theme p,
-.light .final-result {
+.light .final-result,
+.light .current-actions {
     color: #36362c;
     background-color: #eeeeee;
     }
@@ -305,10 +307,12 @@ body {
     }
 
     .final-result {
+        margin-top: 15px;
         font-size: 56px;
     }
 
     .current-actions {
+        margin-top: 10px;
         font-size: 30px;
     }
 

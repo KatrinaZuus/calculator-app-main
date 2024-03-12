@@ -124,8 +124,6 @@ let previusAction = ""
                     current = current.slice(0,-1)
                     finalResult.innerText = current
                     previusAction = previusAction.slice(1,0)
-                    console.log(previusAction )
-                    console.log(finalResult.innerText)
                 } else {
                     finalResult.innerText = "0"
                     currentAction.innerText = "0"

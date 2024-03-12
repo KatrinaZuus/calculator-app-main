@@ -50,7 +50,7 @@ let previusAction = ""
                 previusAction += numButton.textContent
                 current += numButton.textContent
                 finalResult.textContent = current
-                currentAction.innerText = previusAction
+                // currentAction.innerText = result
             })
         })
 
@@ -62,30 +62,10 @@ let previusAction = ""
                 current=""
                 currentAction.innerText = previusAction
                 
-
-            console.log(`current is ${current}`)
-            console.log(`previus is ${previus}`)
-            console.log(`result is ${result}`)
-            console.log(`math is ${math}`)
+                // currentAction.innerText = result
             })        
         }) 
-        
-        equal.addEventListener("click", ()=>{
-            calc(math, previus, current)
-            finalResult.innerText = result
-            currentAction.innerText = result
-            previus=result
-            current=result
-            
-            
-            console.log(`current is ${current}`)
-            console.log(`previus is ${previus}`)
-            console.log(`result is ${result}`)
-            console.log(`math is ${math}`)
-            console.log(typeof(`result is ${result}`))
-        })
-
-        
+                
             function calc(math, previus, current) {
             previus = eval(previus)
             current = eval(current)
@@ -104,7 +84,7 @@ let previusAction = ""
                 if (current == 0) {
                     result = "Error"
                 } else {
-                result = (previus/current).toFixed(2)
+                result = Math.floor(previus/current)
                 finalResult.innerText = result
                 }
             }
@@ -115,6 +95,20 @@ let previusAction = ""
 
         }
 
+        equal.addEventListener("click", ()=>{
+            if ( current !== "" || previus !== "" ){
+            calc(math, previus, current)
+            finalResult.innerText = result
+            currentAction.innerText = result
+            previus=result
+            current=result
+            previusAction = result
+            } else {
+                finalResult.innerText = "0"
+                currentAction.innerText = "0"
+            }
+        })
+
             reset.addEventListener("click", ()=>{
                 finalResult.innerText = "0"
                 currentAction.innerText = "0"
@@ -122,22 +116,19 @@ let previusAction = ""
                 current = ""
                 previus = ""
                 previusAction = ""
-
-            console.log(`current is ${current}`)
-            console.log(`previus is ${previus}`)
-            console.log(`result is ${result}`)
-            console.log(`math is ${math}`)
     
             })
     
             del.addEventListener("click", ()=>{
-                current = current.slice(0,-1)
-                finalResult.innerText = current
-                previusAction = previusAction.slice(0,-1)
-
-            console.log(`current is ${current}`)
-            console.log(`previus is ${previus}`)
-            console.log(`result is ${result}`)
-            console.log(`math is ${math}`)
+                if ( current !== "" || previus !== "" ){
+                    current = current.slice(0,-1)
+                    finalResult.innerText = current
+                    previusAction = previusAction.slice(1,0)
+                    console.log(previusAction )
+                    console.log(finalResult.innerText)
+                } else {
+                    finalResult.innerText = "0"
+                    currentAction.innerText = "0"
+                }
             })
         
